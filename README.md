@@ -4,10 +4,10 @@
 
 /*
 
-Insérer le fichier texte dans le dossier Huffman_Coding
-Lancer le programme Huffman et faites votre choix
-Votre fichier a été compressé ! 
-Un fichier compressé a été crée dans le répertoire
+Insérer le fichier texte dans le dossier Huffman_Coding\n
+Lancer le programme Huffman et faites votre choix\n
+Votre fichier a été compressé !\n
+Un fichier compressé a été crée dans le répertoire\n
 Réutiliser le programme pour décompresser le fichier en utilisant la même méthode
 
 */
