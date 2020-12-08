@@ -7,9 +7,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define INPUT "cmake-build-debug/files/input.txt"
-#define DICO "cmake-build-debug/files/dico.txt"
-#define OUTPUT "cmake-build-debug/files/output.txt"
+
+#define INPUT "files/input.txt"
+#define DICO "files/dico.txt"
+#define OUTPUT "files/output.txt"
+
 
 typedef struct occ_char{
     char character;
