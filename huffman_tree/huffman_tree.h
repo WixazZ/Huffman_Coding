@@ -4,35 +4,11 @@
 
 #ifndef HUFFMAN_CODING_HUFFMAN_TREE_H
 #define HUFFMAN_CODING_HUFFMAN_TREE_H
-typedef struct occ_char{
-    char c;
-    int occurence;
-}Occ_Char;
-
-typedef struct huffman_tree{
-    struct occ_char struct_c;
-    struct huffman_tree *right;
-    struct huffman_tree *left;
-}Huffman_Tree;
-
-
-typedef struct same_number_position {
-    int pos;
-    struct same_number_position *next;
-}Same_Number_Position;
-
-/*
-typedef struct list_occ_char {
-    Occ_Char element;
-    struct list_occ_char *next;
-}List_Occ_Char;
-*/
-
-typedef struct list_huffman_tree {
-    Huffman_Tree *element;
-    struct list_huffman_tree *next;
-}List_Huffman_Tree;
-
+#include "../Fct_nb_occ/Comptage_Occ.h"
+int min_occu_list_place(List_Huffman_Node *root);
+List_Huffman_Node *get_node(List_Huffman_Node *root, int idx);
+void del_node(List_Huffman_Node *root, int idx);
+Huffman_Tree *create_huffman_tree(List_Huffman_Node *root);
 #endif //HUFFMAN_CODING_HUFFMAN_TREE_H
 
 
