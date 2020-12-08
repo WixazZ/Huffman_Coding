@@ -9,72 +9,49 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <time.h>
+#include "encoding.h"
 
-/*
-const int MAX_SIZE = 18;
-const char DICO[] = "dico.txt";
-unable to make constant work 
-*/
-
-char* character_to_binary(FILE* dico, char character, char* bit_string){
-    int search_char = 0;
-    int i = 0, x = 0;
-    char bin_string[18] = "";
-    char jump_new_line[] = "";
-    dico = fopen("dico.txt", "r");
-    while (search_char != character && search_char != EOF) {
-        search_char = fgetc(dico);
-        if (search_char != character) {
-            fgets(jump_new_line, 25, dico);
-        }
+int * search_dico(int c_search, size_t *size){
+    int* tab= NULL;
+    FILE *dico = fopen(DICO, "r");
+    int cursor = 0;
+    do{
+        cursor = fgetc(dico);
+    } while (EOF != cursor && cursor != c_search);
+    if (cursor == '\n'){
+        cursor = fgetc(dico);
     }
-    if (search_char != EOF) {
-        if (character == '\n') {
-            search_char = fgetc(dico);
+    while (cursor!='\n'&& cursor!=EOF){
+        if(cursor =='1'||cursor=='0'){
+            (*size)++;
+            tab = realloc(tab,sizeof(int)*(*size) );
+            tab[*size-1] = cursor;
         }
-        while (search_char != '\n' && search_char != EOF) {
-            search_char = fgetc(dico);
-            if (search_char == '1' || search_char == '0') {
-                bin_string[i] = search_char;
-                i++;
-            }
-        }
+        cursor = fgetc(dico);
     }
-    for(x=i;x<18;x++){
-        bin_string[x] = '\0'; // necessary since bit_string takes other values for no reason
-        }    
-    strcpy(bit_string,bin_string);
     fclose(dico);
-    return bit_string;
+    return tab;
 }
-void huffman_to_file(FILE* input, FILE* output, FILE* dico, char* huffman_code){
-    int search_char = 0;
-    input = fopen("input.txt","r");
-    dico = fopen("dico.txt","r");
-    output = fopen("huffman.txt","w+");
-    while(search_char != EOF){
-        search_char = fgetc(input);
-        huffman_code = character_to_binary(dico,search_char,huffman_code);
-        if(search_char != EOF){
-            fputs(huffman_code,output);
-        }    
-    }
+
+void huffman_to_file(){
+    FILE *input = fopen(INPUT, "r");
+    FILE *output = fopen(OUTPUT, "w+");
+    size_t size = 0;
+    int cursor = 0;
+    int* tab_bin =NULL;
+    do{
+        cursor = fgetc(input);
+        tab_bin = search_dico(cursor, &size);
+        for (int i = 0; i < size; ++i) {
+            fputc(tab_bin[i],output );
+        }
+        size =0;
+    } while (EOF != cursor);
+
     fclose(input);
     fclose(output);
 }
 
-//main integration template
-int main(){ 
-    clock_t timer = clock();
-    FILE* dico = NULL;
-    FILE* input = NULL;
-    FILE* output = NULL; 
-    char* huffman_code = malloc(sizeof(char) * 18);
-    huffman_to_file(input,output,dico,huffman_code);
-    timer = clock() - timer;
-    double elapsed_time = ((double)timer)/CLOCKS_PER_SEC;
-    printf("\nElapsed time : %f\n", elapsed_time);
-    free(huffman_code);
-    return 0;
-}
+
+
+

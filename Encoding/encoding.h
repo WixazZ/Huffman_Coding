@@ -6,21 +6,15 @@
  * \version 1.0
  * \date   December 2020
  *********************************************************************/
-#include "encoding.c"
+#include "../Fct_nb_occ/Comptage_Occ.h";
 /**
  * @brief translates character to binary
- * @param dico huffman dictionary
- * @param character character looked for
- * @param bit_string string containing translation
- * @return char array
+ * @param c_search character looked for
+ * @param size size of returned array 
+ * @return int array
 */
-char* character_to_binary(FILE* dico, char character, char* bit_string);
-
+int* search_dico(int c_search, size_t* size);
 /**
  * @brief translates text to huffman code
- * @param input text
- * @param output output text written in huffman code
- * @param dico huffman dictionary
- * @param huffman_code array containing return of character_to_binary()
 */
-void huffman_to_file(FILE* input, FILE* output, FILE* dico, char* huffman_code);
+void huffman_to_file();
