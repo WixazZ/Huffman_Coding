@@ -2,7 +2,7 @@
  * \file   encoding.h
  * \brief  Encoding functions header
  * 
- * \author Adam Louafi (61043077+adam-louafi@users.noreply.github.com)
+ * \author Adam Louafi (https://github.com/adam-louafi)
  * \version 1.0
  * \date   December 2020
  *********************************************************************/
