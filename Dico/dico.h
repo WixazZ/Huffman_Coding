@@ -17,7 +17,7 @@
 void call_dico (Huffman_Tree * huffman);
 
 /**
- * @brief function who will insert 0 or 1 to file.txt
+ * @brief function which will insert 0 or 1 to file.txt
  * @param huffman huffman tree
  * @param arrayy stocking data in array
  * @param i counter for the array
