@@ -1,6 +1,11 @@
-//
-// Created by parad on 19/11/2020.
-//
+/*****************************************************************//**
+ * \file   huffman_tree.c
+ * \brief  Huffman_tree functions
+ *
+ * \author Alexis Paradiso (https://github.com/WixazZ)
+ * \version 1.0
+ * \date   December 2020
+ *********************************************************************/
 #include <stdio.h>
 #include <stdlib.h>
 #include "huffman_tree.h"
