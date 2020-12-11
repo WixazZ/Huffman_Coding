@@ -6,7 +6,7 @@
  * \version 1.0
  * \date   December 2020
  *********************************************************************/
-#include "../Fct_nb_occ/Comptage_Occ.h";
+#include "../Fct_nb_occ/Comptage_Occ.h"
 /**
  * @brief translates character to binary
  * @param c_search character looked for
