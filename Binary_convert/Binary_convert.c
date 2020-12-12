@@ -9,7 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "Binary_convert.h"
 int * binary_convert_caractere(int val, int* tab){
     int i;
     for(i=7; val > 0; i--){
