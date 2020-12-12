@@ -1,6 +1,12 @@
+/*****************************************************************//**
+ * \file   Comptage_Occ.c
+ * \brief  Comptage_Occ function
+ *
+ * \author Romain EYBRARD (https://github.com/EzzaaX/)
+ * \version 1.0
+ * \date   December 2020
+ *********************************************************************/
 #include "Comptage_Occ.h"
-
-
 
 Huffman_Tree* allocate_huffman_branch(){
     Huffman_Tree *HT = malloc(sizeof(Huffman_Tree));

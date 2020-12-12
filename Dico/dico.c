@@ -1,6 +1,6 @@
 /*****************************************************************//**
 * \file dico.c
-* \brief Header of the dico
+* \brief dico function
 *
 * \author Arthur Lin arthur.lin@efrei.net
 * \date December 2020

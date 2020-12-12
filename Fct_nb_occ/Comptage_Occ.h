@@ -16,7 +16,7 @@
 #define INPUT "files/input.txt"
 #define DICO "files/dico.txt"
 #define OUTPUT "files/output.txt"
-
+#define BINARY "files/binary.txt"
 
 typedef struct occ_char{
     char character;

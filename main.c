@@ -6,6 +6,7 @@
 #include "huffman_tree/huffman_tree.h"
 #include "Encoding/encoding.h"
 #include "Dico/dico.h"
+#include "Binary_convert/Binary_convert.h"
 #include <time.h>
 
 int main() {
@@ -19,16 +20,20 @@ int main() {
     FILE * input = fopen(INPUT,"r");
     FILE * output= fopen(OUTPUT,"r");
     FILE * dico = fopen(DICO,"r");
+    FILE * binary = fopen(BINARY,"r");
     if (input == NULL){
         printf("Pour continuer vous devez creer un dossier files et creer un fichier input.txt a l'interieur\n");
     } else if (output == NULL){
         printf("Pour continuer vous devez creer un dossier files et creer un fichier output.txt a l'interieur\n");
     } else if (dico == NULL){
         printf("Pour continuer vous devez creer un dossier files et creer un fichier dico.txt a l'interieur\n");
-    } else{
+    }   else if(binary == NULL){
+        printf("Pour continuer vous devez creer un dossier files et creer un fichier binary.txt a l'interieur\n");
+    }   else{
         fclose(input);
         fclose(output);
         fclose(dico);
+        fclose(binary);
         int in;
         do {
             printf("\n\n Voulez-vous codez(0) ou (Bientot)decodez(1) un fichier ?\n");
@@ -38,6 +43,7 @@ int main() {
         clock_t t1,t2;
         float temps;
         t1 = clock();
+        binary_convert();
         huffman_to_file();
         List_Huffman_Node *P = Main_Occ();
         Huffman_Tree *f;

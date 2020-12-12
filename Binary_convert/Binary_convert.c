@@ -1,14 +1,12 @@
 /*****************************************************************//**
- * \file   binary_convert.h
- * \brief  binary convert functions header
- *
- * \author Arthur Godinho (https://github.com/arthurg01)
- * \version 1.0
- * \date   December 2020
- *********************************************************************/
+* \file Binary_convert.c
+* \brief binary convert functions
+*
+* \author Arthur Godinho (https://github.com/arthurg01)
+* \version 1.0
+* \date December 2020
+*********************************************************************/
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "Binary_convert.h"
 int * binary_convert_caractere(int val, int* tab){
     int i;
@@ -21,7 +19,7 @@ int * binary_convert_caractere(int val, int* tab){
 
 void binary_convert(){
     FILE * input = fopen(INPUT,"r");
-    FILE * output = fopen(OUTPUT,"w+");
+    FILE * output = fopen(BINARY,"w+");
     int* tab = malloc(8* sizeof(int*));
     for (int i = 0; i < 8; ++i) {
         tab[i]=0;
@@ -42,13 +40,4 @@ void binary_convert(){
 
     fclose(input);
     fclose(output);
-}
-
-
-
-
-int main(){
-    binary_convert();
-
-    return 0;
 }
